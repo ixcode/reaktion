@@ -2,11 +2,11 @@
   (:use [noir.core :only [defpartial]]
         [hiccup.page :only [include-css html5]]))
 
-(defpartial layout [& content]
+(defpartial layout [params & content]
             (html5
               [:head
-               [:title "reaktion"]
-               (include-css "/css/reset.css")]
+               [:title (:title params)]
+               (include-css "/css/site.css")]
               [:body
                [:div#wrapper
                 content]]))
