@@ -14,3 +14,29 @@ img.choice {
 ul, li {
   list-style:none;
 }
+
+p.rating-question {
+    overflow:auto;
+}
+
+p.rating-question span.label {
+    width: 260px;
+    float:clear;
+}
+
+p.rating-question span.low, 
+p.rating-question span.high {
+    width: 50px;
+    text-align: center;
+}
+
+p.rating-question input[type='radio'] {
+    width:30px;   
+    border: 1px solid blue;
+}
+
+p.rating-question input, 
+p.rating-question span {
+    display:block;
+    float:left;
+}
