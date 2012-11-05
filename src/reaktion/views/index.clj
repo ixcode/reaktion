@@ -15,14 +15,6 @@
         [:input {:id id :type "radio" :name name :value value}]
         [:img.choice {:src src}] text]))
 
-(def rating-questions
-  ["presentation-style"
-   "technical-interest"
-   "slideware-quality"
-   "clarity-of-communication"])
-
-(defn rating-table [questions]
-  )
 
 (defn radio-button [id name value]  
   [:input {:id name :type "radio" :name name :value value}])
@@ -45,6 +37,18 @@
 (defn comment-box [title]
   [:div.comment-box
    [:label "Enter any comments" [:textarea.comments]]])
+
+(def talk-data
+  {:der42323234 
+    {:is :talk
+     :title "The Catcher in the code"
+     :speaker "Pavel Badenski"
+     :speaker-img "https://secure.gravatar.com/avatar/5c934bb3826efd22dcb43894b817153a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"}
+   :saer3224234123 
+    {:is :talk
+     :title "Programming in the large"
+     :speaker "James Lewis"
+     :speaker-img "https://trello-avatars.s3.amazonaws.com/6b2b6c28c5a69c16844d55efe7113bdc/30.png"}})
 
 
 (defpage "/" []
