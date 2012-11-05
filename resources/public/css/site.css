@@ -3,7 +3,11 @@ body {
 }
 
 img.speaker {
-    width:200px;
+    width:100px;
+}
+
+p.speaker {
+    font-weight: bold;
 }
 
 img.choice {
@@ -13,6 +17,19 @@ img.choice {
 
 ul, li {
   list-style:none;
+}
+
+div.ratings {
+    border: 4px solid #222222;
+    background-color: #DDDDDD;
+    padding:20px;
+    width:550px;
+    overflow:auto;
+}
+
+div.ratings h2 {
+    padding:0;
+    margin:0;
 }
 
 p.rating-question {
@@ -39,4 +56,27 @@ p.rating-question input,
 p.rating-question span {
     display:block;
     float:left;
+}
+
+.btn {
+    margin-top:30px;
+    width: 100px;
+    height: 180px;
+    float:right;
+    clear:both;
+    font-size:4em;
+}
+
+div.comment-box {
+    clear:both;
+}
+
+
+div.comment-box textarea {
+    width:280px;
+    height:150px;
+    float:right;
+    font-size:1em;
+    font-family: "Courier New";
+    resize:none;
 }

@@ -42,6 +42,10 @@
    (rating-radio-button question-id "05")
    [:span.high "high"]])
 
+(defn comment-box [title]
+  [:div.comment-box
+   [:label "Enter any comments" [:textarea.comments]]])
+
 
 (defpage "/" []
   (common/layout
@@ -62,12 +66,11 @@
      ;;  (choice-image "reaktion" "wow" "/img/monumental.jpeg" "Monumental!")]
 
      [:div.ratings
+      [:h2 "Your feedback..."]
       (rating-question "overall-impression")
       (rating-question "presentation-style")
       (rating-question "technical-interest")
       (rating-question "slidewate-quality")
-      (rating-question "clarity-of-communication")]
-
-
-     [:label "Enter any comments" [:textarea.comments]]
-     [:input {:type "submit" :value "REAKT!"}]]]))
+      (rating-question "clarity-of-communication")
+      (comment-box "Enter any comments")      
+      [:input.btn {:type "submit" :value "REAKT!"}]]]]))
