@@ -61,7 +61,7 @@
      [:img.speaker {:src "https://secure.gravatar.com/avatar/5c934bb3826efd22dcb43894b817153a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
                     :alt "Pawel Badenski"}]
      [:p.speaker "Pavel Badenski"]
-     ;;[:p "If you select lower than 3 bytes (will be zeroes and ones) you will need to enter a comment."]     
+     [:p "If you select lower than 3 bytes (will be zeroes and ones) you will need to enter a comment."]     
      ;; [:div.reaktion      
      ;;  (choice-image "reaktion" "zzz" "/img/sleep.jpeg" "Zzzzz")
      ;;  (choice-image "reaktion" "er?" "/img/confused.jpeg" "Er...?")
