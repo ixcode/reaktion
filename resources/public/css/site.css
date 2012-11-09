@@ -83,6 +83,18 @@ div.comment-box textarea {
     resize:none;
 }
 
+div.email-question {
+    padding-top:20px;
+    clear:both;
+}
+
+div.email-question input {
+    float:right;
+    width:280px;
+    font-size:1em;
+    font-family: "Courier New";
+}
+
 p.talk-list-item {
     width: 600px;
     margin-top:50px;

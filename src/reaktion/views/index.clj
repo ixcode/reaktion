@@ -35,7 +35,8 @@
      (rating-question "technical-interest")
      (rating-question "slideware-quality")
      (rating-question "clarity-of-communication")
-     (comment-box "Enter any comments" "comments")      
+     (comment-box "Enter any comments" "comments")
+     (email-question "reviewer-email")
      [:input.btn {:type "submit" :value "REAKT!"}]]]])
 
 (defpage [:get "/"] {:as formData}

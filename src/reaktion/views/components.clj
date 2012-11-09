@@ -37,3 +37,6 @@
   [:div.comment-box
    [:label title [:textarea.comments {:name name}]]])
 
+(defn email-question [id]
+  [:div.email-question
+   [:label (label-from-id id) [:input {:type "text" :name (clojure.string/replace id "-" "_")}]]])
