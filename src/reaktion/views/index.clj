@@ -1,9 +1,9 @@
 (ns reaktion.views.index
   (:require [reaktion.views.common :as common]
-            [reaktion.data.current_talks :as data]
-            [reaktion.views.components :as components])
+            [reaktion.data.current_talks :as data])
   (:use noir.core
-        hiccup.element))
+        hiccup.element
+        reaktion.views.components))
 
 (defpartial talk-item [{:keys [id title speaker speaker-img]}]
   [:li
@@ -28,12 +28,12 @@
     
     [:div.ratings
      [:h2 "Your feedback..."]
-     (components/rating-question "overall-impression")
-     (components/rating-question "presentation-style")
-     (components/rating-question "technical-interest")
-     (components/rating-question "slidewate-quality")
-     (components/rating-question "clarity-of-communication")
-     (components/comment-box "Enter any comments")      
+     (rating-question "overall-impression")
+     (rating-question "presentation-style")
+     (rating-question "technical-interest")
+     (rating-question "slidewate-quality")
+     (rating-question "clarity-of-communication")
+     (comment-box "Enter any comments")      
      [:input.btn {:type "submit" :value "REAKT!"}]]]])
 
 (defpage [:get "/"] {:as formData}
