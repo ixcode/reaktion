@@ -1,6 +1,8 @@
 (ns reaktion.views.index
   (:require [reaktion.views.common :as common]
-            [reaktion.data.current_talks :as data])
+            [reaktion.data.current_talks :as data]
+            [noir.response :as response]
+	)
   (:use noir.core
         hiccup.element
         reaktion.views.components))
@@ -20,7 +22,7 @@
   
   [:h1 "Let's get your reaktion"]
   [:div.talk
-   [:form {:action (format "/talks/%s" id)}
+   [:form {:method :post :action (format "/talks/%s" id)}
     [:h2.title title]
     [:img.speaker {:src speaker-img
                    :alt speaker}]
@@ -47,3 +49,6 @@
    {:title "reaktion - talk"}
    (reakt-to-a-talk (first data/talk-data))))
 
+(defpage [:post "/talks/:id"] {:as params}
+	(response/redirect "/")
+)
