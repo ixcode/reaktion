@@ -33,9 +33,9 @@
      (rating-question "overall-impression")
      (rating-question "presentation-style")
      (rating-question "technical-interest")
-     (rating-question "slidewate-quality")
+     (rating-question "slideware-quality")
      (rating-question "clarity-of-communication")
-     (comment-box "Enter any comments")      
+     (comment-box "Enter any comments" "comments")      
      [:input.btn {:type "submit" :value "REAKT!"}]]]])
 
 (defpage [:get "/"] {:as formData}
@@ -50,5 +50,12 @@
    (reakt-to-a-talk (first data/talk-data))))
 
 (defpage [:post "/talks/:id"] {:as params}
-	(response/redirect "/")
-)
+  (println params)
+  (response/redirect "/feedback-accepted"))
+
+(defpage [:get "/feedback-accepted"] {}
+  (common/layout
+   {:title "Thank you"}
+   [:h1 "Thanks, your feedback has been submitted!"]
+   [:p "Return to "
+    [:a {:href "/"} "The list of talks."]]))

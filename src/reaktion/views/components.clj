@@ -20,7 +20,7 @@
 
 (defn rating-radio-button [question-id value]
   (let [element-id (format "%s_%s" (clojure.string/replace question-id "-" "_") value)]
-    (radio-button element-id (clojure.string/replace question-id "-" ".") value)))
+    (radio-button element-id (clojure.string/replace question-id "-" "_") value)))
 
 (defn rating-question [question-id]
   [:p.rating-question
@@ -33,7 +33,7 @@
    (rating-radio-button question-id "05")
    [:span.high "high"]])
 
-(defn comment-box [title]
+(defn comment-box [title, name]
   [:div.comment-box
-   [:label "Enter any comments" [:textarea.comments]]])
+   [:label title [:textarea.comments {:name name}]]])
 
