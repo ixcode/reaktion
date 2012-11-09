@@ -1,55 +1,20 @@
 (ns reaktion.views.index
-  (:require [reaktion.views.common :as common])
+  (:require [reaktion.views.common :as common]
+            [reaktion.data.current_talks :as data]
+            [reaktion.views.components :as components])
   (:use noir.core
         hiccup.element))
 
-(defn label-from-id [id]
-  (-> 
-   (clojure.string/replace id "-" " ")
-   (clojure.string/capitalize)))
+(defpartial talk-item [{:keys [id title speaker speaker-img]}]
+  [:li
+   [:p.talk-list-item    
+    [:img.speaker {:src speaker-img} ]
+    [:a {:href (format "/talks/%s" id)} title]] ])
 
-
-(defn choice-image [name value src text]
-  (let [id (format "%s-%s" name value)]
-       [:label {:for id}
-        [:input {:id id :type "radio" :name name :value value}]
-        [:img.choice {:src src}] text]))
-
-
-(defn radio-button [id name value]  
-  [:input {:id name :type "radio" :name name :value value}])
-
-(defn rating-radio-button [question-id value]
-  (let [element-id (format "%s_%s" (clojure.string/replace question-id "-" "_") value)]
-    (radio-button element-id (clojure.string/replace question-id "-" ".") value)))
-
-(defn rating-question [question-id]
-  [:p.rating-question
-   [:span.label (label-from-id question-id)]
-   [:span.low "low"]
-   (rating-radio-button question-id "01")
-   (rating-radio-button question-id "02")
-   (rating-radio-button question-id "03")
-   (rating-radio-button question-id "04")
-   (rating-radio-button question-id "05")
-   [:span.high "high"]])
-
-(defn comment-box [title]
-  [:div.comment-box
-   [:label "Enter any comments" [:textarea.comments]]])
-
-(def talk-data
-   
-  [{:is :talk
-     :title "The Catcher in the code"
-     :speaker "Pavel Badenski"
-     :speaker-img "https://secure.gravatar.com/avatar/5c934bb3826efd22dcb43894b817153a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"},
-    
-    {:is :talk
-     :title "Programming in the large"
-     :speaker "James Lewis"
-     :speaker-img "https://trello-avatars.s3.amazonaws.com/6b2b6c28c5a69c16844d55efe7113bdc/30.png"}])
-
+(defpartial list-talks [talks]
+  [:h1 "Here are the talks you can reakt to..."]
+  [:ul
+   (map talk-item talks)])
 
 (defpartial reakt-to-a-talk [{:keys [id title speaker speaker-img]}]
   
@@ -63,15 +28,22 @@
     
     [:div.ratings
      [:h2 "Your feedback..."]
-     (rating-question "overall-impression")
-     (rating-question "presentation-style")
-     (rating-question "technical-interest")
-     (rating-question "slidewate-quality")
-     (rating-question "clarity-of-communication")
-     (comment-box "Enter any comments")      
+     (components/rating-question "overall-impression")
+     (components/rating-question "presentation-style")
+     (components/rating-question "technical-interest")
+     (components/rating-question "slidewate-quality")
+     (components/rating-question "clarity-of-communication")
+     (components/comment-box "Enter any comments")      
      [:input.btn {:type "submit" :value "REAKT!"}]]]])
 
-(defpage [:get "/"] {}
+(defpage [:get "/"] {:as formData}
   (common/layout
-   {:title "reaktion - home"}
-   (reakt-to-a-talk (first talk-data))))
+   {:title "reaktion - talk"}
+   (list-talks data/talk-data)))
+
+
+(defpage [:get "/talks/:id"] {:keys [id]}
+  (common/layout
+   {:title "reaktion - talk"}
+   (reakt-to-a-talk (first data/talk-data))))
+
