@@ -1,8 +1,8 @@
 (ns reaktion.views.index
   (:require [reaktion.views.common :as common]
             [reaktion.data.current_talks :as data]
-            [noir.response :as response]
-	)
+            [reaktion.data.storage :as storage]
+            [noir.response :as response])
   (:use noir.core
         hiccup.element
         reaktion.views.components))
@@ -53,7 +53,8 @@
    (reakt-to-a-talk ((keyword id) data/talk-index))))
 
 (defpage [:post "/talks/:id"] {:as params}
-  (println params)
+  (storage/save-feedback params)
+  (storage/register-reviewer (:reviewer_email params) "14-11-2012")
   (response/redirect "/feedback-accepted"))
 
 (defpage [:get "/feedback-accepted"] {}
