@@ -21,6 +21,7 @@
 (defpartial reakt-to-a-talk [{:keys [id title speaker speaker-img]}]
   
   [:h1 "Let's get your reaktion"]
+  [:p.instructions "Although we ask for your email, it's only used for the door prize, the feedback will be annonymous, promise!"]
   [:div.talk
    [:form {:method :post :action (format "/talks/%s" id)}
     [:h2.title title]
@@ -57,6 +58,6 @@
 (defpage [:get "/feedback-accepted"] {}
   (common/layout
    {:title "Thank you"}
-   [:h1 "Thanks, your feedback has been submitted!"]
+   [:h1 "Thanks, your feedback has been submitted and you have been entered for the door prize. Your email address will not be associated with the feedback."]
    [:p "Return to "
     [:a {:href "/"} "The list of talks."]]))
