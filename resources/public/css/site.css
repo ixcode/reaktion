@@ -118,6 +118,8 @@ p.talk-list-item img, p.talk-list-item a {
 
 p.talk-list-item img {
     width: 100px;
+    border:none;
+    border-right: 5px solid #333333;
 }
 
 p.talk-list-item a {

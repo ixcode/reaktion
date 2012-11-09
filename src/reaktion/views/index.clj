@@ -38,6 +38,7 @@
      (rating-question "clarity-of-communication")
      (comment-box "Enter any comments" "comments")
      (email-question "reviewer-email")
+     [:input {:type "hidden" :name "talk" :value id}]
      [:input.btn {:type "submit" :value "REAKT!"}]]]])
 
 (defpage [:get "/"] {:as formData}
