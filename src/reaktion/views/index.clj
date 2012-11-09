@@ -41,13 +41,13 @@
 (defpage [:get "/"] {:as formData}
   (common/layout
    {:title "reaktion - talk"}
-   (list-talks data/talk-data)))
+   (list-talks data/talk-list)))
 
 
 (defpage [:get "/talks/:id"] {:keys [id]}
   (common/layout
    {:title "reaktion - talk"}
-   (reakt-to-a-talk (first data/talk-data))))
+   (reakt-to-a-talk ((keyword id) data/talk-index))))
 
 (defpage [:post "/talks/:id"] {:as params}
   (println params)
