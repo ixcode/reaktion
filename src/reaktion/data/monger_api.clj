@@ -21,9 +21,12 @@
      (dissoc data :_id)
      (merge {:id (str _id)}))))
 
+(defn retrieve-collection [collection-name query]
+  (map normalise-mongo-id (mc/find-maps collection-name query)))
+
 (defn retrieve-document [collection-name id]
   (let [data (mc/find-map-by-id collection-name (ObjectId. id))]
-    (let [])))
+    (println data)))
 
 
 

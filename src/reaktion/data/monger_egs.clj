@@ -9,3 +9,5 @@
 ;;(mc/find "mycollection" {:first_name "John"})
 ;;(mc/find-one "mycollection" {:first_name "John"})
 ;;(println (str  (:_id (mc/find-map-by-id "mycollection" (ObjectId. "509d887f3004e23034457a76")))))
+
+(map println (mc/find "feedback" {:talk "572073e3-5676-4f3f-bdfb-0912a2973737"}))

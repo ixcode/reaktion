@@ -47,15 +47,24 @@
    (list-talks data/talk-list)))
 
 
+(defpage [:get "/talks"] {}
+  (response/json data/talk-list))
+
+(defpage [:get "/talks/:id/feedback"] {:keys [id]}
+  (response/json (storage/retrieve-feedback-for-talk id)))
+
 (defpage [:get "/talks/:id"] {:keys [id]}
   (common/layout
    {:title "reaktion - talk"}
    (reakt-to-a-talk ((keyword id) data/talk-index))))
 
+
 (defpage [:post "/talks/:id"] {:as params}
-  (storage/save-feedback params)
+  (storage/save-feedback (dissoc params :id))
   (storage/register-reviewer (:reviewer_email params) "14-11-2012")
   (response/redirect "/feedback-accepted"))
+
+
 
 (defpage [:get "/feedback-accepted"] {}
   (common/layout
@@ -63,3 +72,4 @@
    [:h1 "Thanks, your feedback has been submitted and you have been entered for the door prize. Your email address will not be associated with the feedback."]
    [:p "Return to "
     [:a {:href "/"} "The list of talks."]]))
+
