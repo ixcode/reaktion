@@ -2,6 +2,7 @@
   (:require [reaktion.views.common :as common]
             [reaktion.data.current_talks :as data]
             [reaktion.data.storage :as storage]
+            [noir.request :as request]
             [noir.response :as response])
   (:use noir.core
         hiccup.element
@@ -46,9 +47,11 @@
    {:title "reaktion - talk"}
    (list-talks data/talk-list)))
 
+(defn hostname []
+  (:host request/ring-request))
 
 (defpage [:get "/talks"] {}
-  (response/json data/talk-list))
+  (response/json (data/talk-list (hostname))))
 
 (defpage [:get "/talks/:id/feedback"] {:keys [id]}
   (response/json (storage/retrieve-feedback-for-talk id)))
@@ -56,7 +59,7 @@
 (defpage [:get "/talks/:id"] {:keys [id]}
   (common/layout
    {:title "reaktion - talk"}
-   (reakt-to-a-talk ((keyword id) data/talk-index))))
+   (reakt-to-a-talk ((keyword id) (data/talk-index (hostname))))))
 
 
 (defpage [:post "/talks/:id"] {:as params}
@@ -73,3 +76,7 @@
    [:p "Return to "
     [:a {:href "/"} "The list of talks."]]))
 
+
+(defpage [:get "/ping"] {:as params}
+  (println (request/ring-request))
+  (response/json (merge {:is :ping :message "pong"} params)))
