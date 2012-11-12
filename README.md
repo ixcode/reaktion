@@ -19,7 +19,7 @@ lein run
 
   $ heroku login
 
-  $ heroku create --stack cedar
+  $ heroku create --stack cedar reaktion
 
   $ git push heroku master
 
