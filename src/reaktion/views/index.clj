@@ -8,6 +8,10 @@
         hiccup.element
         reaktion.views.components))
 
+(defn hostname []
+  (:host request/ring-request))
+
+
 (defpartial talk-item [{:keys [id title speaker speaker-img]}]
   [:li
    [:p.talk-list-item    
@@ -47,8 +51,6 @@
    {:title "reaktion - talk"}
    (list-talks (data/talk-list (hostname)))))
 
-(defn hostname []
-  (:host request/ring-request))
 
 (defpage [:get "/talks"] {}
   (response/json (data/talk-list (hostname))))
