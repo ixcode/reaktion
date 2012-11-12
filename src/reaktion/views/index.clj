@@ -45,7 +45,7 @@
 (defpage [:get "/"] {:as formData}
   (common/layout
    {:title "reaktion - talk"}
-   (list-talks data/talk-list)))
+   (list-talks (data/talk-list (hostname)))))
 
 (defn hostname []
   (:host request/ring-request))
