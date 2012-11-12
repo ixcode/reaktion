@@ -6,6 +6,7 @@
 
 
 (defn connect-mongo! []
+  (println "!!!!!!" (System/getenv "MONGOHQ_URL"))
   (let [mongohq_url (System/getenv "MONGOHQ_URL")]
     (if (nil? mongohq_url)
       (connect!)
