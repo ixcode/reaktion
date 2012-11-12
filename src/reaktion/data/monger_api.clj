@@ -1,6 +1,6 @@
 (ns reaktion.data.monger_api
   (:require [monger.collection :as mc])
-  (:use [monger.core :only [connect! connect set-db! get-db]])
+  (:use [monger.core :only [connect! connect set-db! connect-via-uri! get-db]])
   (:import [org.bson.types ObjectId]
            [com.mongodb DB WriteConcern]))
 
