@@ -10,7 +10,7 @@
     (println "Hello!")
     (println (format "PORT: %s" port))
     (println (format "MONGOHQ_URL: %s" (System/getenv "MONGOHQ_URL")))
-;;    (mongo/connect-mongo!)
+    (mongo/connect-mongo!)
     (server/start port {:mode mode
                         :ns 'reaktion})))
 
