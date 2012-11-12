@@ -9,7 +9,8 @@
         reaktion.views.components))
 
 (defn hostname []
-  (:host request/ring-request))
+  (let [{ server :server-name port :server-port} (request/ring-request)]
+    (format "%s:%s" server, port)))
 
 
 (defpartial talk-item [{:keys [id title speaker speaker-img]}]
@@ -52,7 +53,8 @@
    (list-talks (data/talk-list (hostname)))))
 
 
-(defpage [:get "/talks"] {}
+(defpage [:get "/talks"] {:as formData}  
+  (println (hostname))
   (response/json (data/talk-list (hostname))))
 
 (defpage [:get "/talks/:id/feedback"] {:keys [id]}
@@ -80,5 +82,5 @@
 
 
 (defpage [:get "/ping"] {:as params}
-  (println (request/ring-request))
+  (println request/ring-request)
   (response/json (merge {:is :ping :message "pong"} params)))
