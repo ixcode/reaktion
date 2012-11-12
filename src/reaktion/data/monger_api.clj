@@ -6,8 +6,11 @@
 
 
 (defn connect-mongo! []
-   (connect!)
-   (set-db! (get-db "reaktion-test")))
+  (let [mongohq_url (System/getenv "MONGOHQ_URL")]
+    (if (nil? mongohq_url)
+      (connect!)
+      (connect-via-uri! mongohq_url)))
+  (set-db! (get-db "reaktion-test")))
 
 (defn store-document [collection-name document]
   (let [oid (ObjectId.)]
@@ -27,6 +30,7 @@
 (defn retrieve-document [collection-name id]
   (let [data (mc/find-map-by-id collection-name (ObjectId. id))]
     (println data)))
+
 
 
 

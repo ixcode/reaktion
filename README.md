@@ -19,7 +19,11 @@ lein run
 
   $ heroku login
 
+  $ heroku addons:add mongohq:sandbox --app reaktion
+
   $ heroku create --stack cedar reaktion
+
+  $ heroku git:remote -a reaktion
 
   $ git push heroku master
 
