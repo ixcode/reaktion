@@ -15,6 +15,14 @@ lein deps
 lein run
 ```
 
+## Heroku setup
+
+  $ heroku login
+
+  $ heroku create --stack cedar
+
+  $ git push heroku master
+
 ## License
 
 Copyright (C) 2011 FIXME
