@@ -9,9 +9,9 @@
   (println "!!!!!!" (System/getenv "MONGOHQ_URL"))
   (let [mongohq_url (System/getenv "MONGOHQ_URL")]
     (if (nil? mongohq_url)
-      (connect!)
-      (connect-via-uri! mongohq_url)))
-  (set-db! (get-db "reaktion-test")))
+      (do (connect!)
+          (set-db! (get-db "reaktion")))
+      (connect-via-uri! mongohq_url))))
 
 (defn store-document [collection-name document]
   (let [oid (ObjectId.)]
