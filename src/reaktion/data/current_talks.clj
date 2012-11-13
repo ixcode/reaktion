@@ -5,7 +5,7 @@
    :id "572073e3-5676-4f3f-bdfb-0912a2973737"
    :self (format "http://%s/talks/572073e3-5676-4f3f-bdfb-0912a2973737" host)
    :title "The Catcher in the code"
-   :speaker "Pavel Badenski"
+   :speaker "Pawel Badenski"
    :speaker-img "https://secure.gravatar.com/avatar/5c934bb3826efd22dcb43894b817153a?s=400&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png"
    :feedback (format "http://%s/talks/572073e3-5676-4f3f-bdfb-0912a2973737/feedback" host)})
 
