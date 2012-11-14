@@ -48,7 +48,7 @@
      [:input {:type "hidden" :name "talk" :value id}]
      [:input.btn {:type "submit" :value "REAKT!"}]]]])
 
-(defpage [:get "/"] {:as formData}
+(defpage [:get "/old-homepage"] {:as formData}
   (common/layout
    {:title "reaktion - talk"}
    (list-talks (data/talk-list (hostname)))))
@@ -86,6 +86,6 @@
   (println request/ring-request)
   (response/json (merge {:is :ping :message "pong"} params)))
 
-(defpage [:get "/try-enlive"] {:as params}
+(defpage [:get "/"] {:as params}
   (enlive/render (enlive/talks "hello")))
   

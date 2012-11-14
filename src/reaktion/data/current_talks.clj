@@ -13,9 +13,9 @@
   {:is :talk
    :id "cf549313-bf03-4231-b17d-1be56ae13bb8"
    :self (format "http://%s/cf549313-bf03-4231-b17d-1be56ae13bb8" host)
-   :title "Programming in the large"
-   :speaker "James Lewis"
-   :speaker-img "https://trello-avatars.s3.amazonaws.com/6b2b6c28c5a69c16844d55efe7113bdc/30.png"
+   :title "Building micro services using Java, Gradle and Dropwizard"
+   :speaker "David Morgantini"
+   :speaker-img "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face.jpg"
    :feedback (format "http://%s/talks/cf549313-bf03-4231-b17d-1be56ae13bb8/feedback" host)})
 
 (defn talk-list [host]
