@@ -44,7 +44,14 @@
 
 
 (defn talk-reaktion [talk]
-  (println (:id talk))
   (layout {:title "Reakt!"
            :body-class "talk-view"
            :main (_reakt-to-a-talk talk)}))
+
+(html/defsnippet _thanks "reaktion/views/thanks.html" [:div.thanks]
+  [])
+
+(defn feedback-accepted []
+  (layout {:title "Feedback accepted"
+           :body-class "thanks-view"
+           :main (_thanks)}))

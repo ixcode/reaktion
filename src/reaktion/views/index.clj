@@ -64,14 +64,16 @@
 (defpage [:get "/talks/:id/feedback"] {:keys [id]}
   (response/json (storage/retrieve-feedback-for-talk id)))
 
-(defpage [:get "/talks/:id"] {:keys [id]}
+(defpage [:get "/talks/:id/oldskool"] {:keys [id]}
   (common/layout
    {:title "reaktion - talk"}
    (reakt-to-a-talk ((keyword id) (data/talk-index (hostname))))))
 
-(defpage [:get "/talks/:id/newskool"] {:keys [id]}
+(defpage [:get "/talks/:id"] {:keys [id]}
   (enlive/render (enlive/talk-reaktion ((keyword id) (data/talk-index (hostname))))))
 
+(defpage [:get "/feedback-accepted"] {}
+  (enlive/render (enlive/feedback-accepted)))
 
 (defpage [:post "/talks/:id"] {:as params}
   (storage/save-feedback (dissoc params :id))
@@ -80,7 +82,7 @@
 
 
 
-(defpage [:get "/feedback-accepted"] {}
+(defpage [:get "/feedback-accepted-oldskool"] {}
   (common/layout
    {:title "Thank you"}
    [:h1 "Thanks, your feedback has been submitted and you have been entered for the door prize. Your email address will not be associated with the feedback."]
