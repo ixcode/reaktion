@@ -87,5 +87,5 @@
   (response/json (merge {:is :ping :message "pong"} params)))
 
 (defpage [:get "/try-enlive"] {:as params}
-  (enlive/render (enlive/layout {:title "This is my title" :content "This is my content"})))
+  (enlive/render (enlive/talks "hello")))
   

@@ -17,9 +17,15 @@
     [(and (html/has [:meta]) (html/attr-has :name name))] (html/set-attr :content content))
 
 (html/deftemplate layout "reaktion/views/layout.html"
-  [{:keys [title content]}]
+  [{:keys [title main]}]
   [:title]  (maybe-content title)
   ;;(meta-tag "description" title) Need help!
   [(and (html/has [:meta]) (html/attr-has :name "description"))] (html/set-attr :content title)
-  [:div.main] (maybe-content content))
+  [:div.main] (maybe-content main))
 
+(html/defsnippet list-of-talks "reaktion/views/list_of_talks.html" [:div.talk-list]
+  [{:keys [talks]}])
+
+(defn talks [talks]
+  (layout {:title "Talks"
+           :main  (list-of-talks {:talks "foo"})}))
