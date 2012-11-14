@@ -33,11 +33,11 @@
            :main  (_list-of-talks {:talks "foo"})}))
 
 (html/defsnippet _reakt-to-a-talk "reaktion/views/reakt_to_a_talk.html" [:div.talk]
-  [{:keys [id speaker speaker-img self]}]
+  [{:keys [id speaker speaker-img self title]}]
   [:div.speaker :> :img] (html/set-attr :alt speaker)
   [:div.speaker :> :img] (html/set-attr :src speaker-img)
   [:div.speaker :> :img] (html/set-attr :title speaker)
-  [:div.speaker :> :h1] (maybe-content speaker)
+  [:div.speaker :> :h1] (maybe-content title)
   [:div.speaker :> :p] (maybe-content speaker)
   [(and (html/has [:input]) (html/attr-has :name "talk"))] (html/set-attr :value id)
   [:form] (html/set-attr :action self))

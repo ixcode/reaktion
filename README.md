@@ -27,6 +27,8 @@ lein run
 
   $ git push heroku master
 
+  $ heroku logs -t --app reaktion
+
 ## License
 
 Copyright (C) 2011 FIXME
