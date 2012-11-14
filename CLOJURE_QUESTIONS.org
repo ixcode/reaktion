@@ -6,5 +6,6 @@ Some questions I want to ask about clojure
 ** Define a macro for the "set meta attribute" (enlive_helpers.clj)
 ** Make the monger maybe-connection function work
 
+** Why does enlive not work if I use (format "dsss" id) in the form url
 
 

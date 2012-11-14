@@ -17,15 +17,34 @@
     [(and (html/has [:meta]) (html/attr-has :name name))] (html/set-attr :content content))
 
 (html/deftemplate layout "reaktion/views/layout.html"
-  [{:keys [title main]}]
+  [{:keys [title body-class main]}]
   [:title]  (maybe-content title)
   ;;(meta-tag "description" title) Need help!
   [(and (html/has [:meta]) (html/attr-has :name "description"))] (html/set-attr :content title)
+  [:body] (html/set-attr :class body-class)
   [:div.main] (maybe-content main))
 
-(html/defsnippet list-of-talks "reaktion/views/list_of_talks.html" [:div.talk-list]
+(html/defsnippet _list-of-talks "reaktion/views/list_of_talks.html" [:div.talk-list]
   [{:keys [talks]}])
 
 (defn talks [talks]
   (layout {:title "Talks"
-           :main  (list-of-talks {:talks "foo"})}))
+           :body-class "list-view"
+           :main  (_list-of-talks {:talks "foo"})}))
+
+(html/defsnippet _reakt-to-a-talk "reaktion/views/reakt_to_a_talk.html" [:div.talk]
+  [{:keys [id speaker speaker-img self]}]
+  [:div.speaker :> :img] (html/set-attr :alt speaker)
+  [:div.speaker :> :img] (html/set-attr :src speaker-img)
+  [:div.speaker :> :img] (html/set-attr :title speaker)
+  [:div.speaker :> :h1] (maybe-content speaker)
+  [:div.speaker :> :p] (maybe-content speaker)
+  [(and (html/has [:input]) (html/attr-has :name "talk"))] (html/set-attr :value id)
+  [:form] (html/set-attr :action self))
+
+
+(defn talk-reaktion [talk]
+  (println (:id talk))
+  (layout {:title "Reakt!"
+           :body-class "talk-view"
+           :main (_reakt-to-a-talk talk)}))

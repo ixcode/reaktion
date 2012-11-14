@@ -53,6 +53,9 @@
    {:title "reaktion - talk"}
    (list-talks (data/talk-list (hostname)))))
 
+(defpage [:get "/"] {:as params}
+  (enlive/render (enlive/talks (data/talk-list (hostname)))))
+
 
 (defpage [:get "/talks"] {:as formData}  
   (println (hostname))
@@ -65,6 +68,9 @@
   (common/layout
    {:title "reaktion - talk"}
    (reakt-to-a-talk ((keyword id) (data/talk-index (hostname))))))
+
+(defpage [:get "/talks/:id/newskool"] {:keys [id]}
+  (enlive/render (enlive/talk-reaktion ((keyword id) (data/talk-index (hostname))))))
 
 
 (defpage [:post "/talks/:id"] {:as params}
@@ -86,6 +92,4 @@
   (println request/ring-request)
   (response/json (merge {:is :ping :message "pong"} params)))
 
-(defpage [:get "/"] {:as params}
-  (enlive/render (enlive/talks "hello")))
   

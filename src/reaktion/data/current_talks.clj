@@ -12,7 +12,7 @@
 (defn talk-2 [host]
   {:is :talk
    :id "cf549313-bf03-4231-b17d-1be56ae13bb8"
-   :self (format "http://%s/cf549313-bf03-4231-b17d-1be56ae13bb8" host)
+   :self (format "http://%s/talks/cf549313-bf03-4231-b17d-1be56ae13bb8" host)
    :title "Building micro services using Java, Gradle and Dropwizard"
    :speaker "David Morgantini"
    :speaker-img "http://www.cartoonlogodesigns.com/images/misc/Smiley%20faces/smiley%20face.jpg"

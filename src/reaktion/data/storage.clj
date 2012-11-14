@@ -3,7 +3,7 @@
 
 
 (defn save-feedback [data]
-  (println "Storing Feedback: " (dissoc data :reviewer_email))
+  (println "Storing Feedback For " (dissoc data :reviewer_email))
   (mongo/store-document "feedback" (dissoc data :reviewer_email)))
 
 (defn retrieve-feedback-for-talk [id]
