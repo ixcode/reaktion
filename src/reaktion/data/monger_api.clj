@@ -5,6 +5,10 @@
            [com.mongodb DB WriteConcern]))
 
 
+;; (defn maybe-connect-mongo! []
+;;   (when (not (connection? *mongo-config*))
+;;     (connect-mongo!)))
+
 (defn connect-mongo! []
   (println "!!!!!!" (System/getenv "MONGOHQ_URL"))
   (let [mongohq_url (System/getenv "MONGOHQ_URL")]

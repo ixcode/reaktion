@@ -2,6 +2,7 @@
   (:require [reaktion.views.common :as common]
             [reaktion.data.current_talks :as data]
             [reaktion.data.storage :as storage]
+            [reaktion.views.enlive_helpers :as enlive]
             [noir.request :as request]
             [noir.response :as response])
   (:use noir.core
@@ -84,3 +85,7 @@
 (defpage [:get "/ping"] {:as params}
   (println request/ring-request)
   (response/json (merge {:is :ping :message "pong"} params)))
+
+(defpage [:get "/try-enlive"] {:as params}
+  (enlive/render (enlive/layout {:title "This is my title" :content "This is my content"})))
+  
