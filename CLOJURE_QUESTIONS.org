@@ -1,0 +1,10 @@
+* Clojure Questions
+
+Some questions I want to ask about clojure
+
+** How do I make a namespace called something-foo (i.e. has a hyphen in it)
+** Define a macro for the "set meta attribute" (enlive_helpers.clj)
+** Make the monger maybe-connection function work
+
+
+
