@@ -39,9 +39,28 @@
    :speaker-img "https://trello-avatars.s3.amazonaws.com/6b2b6c28c5a69c16844d55efe7113bdc/original.png"
    :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
+(defn talk-5 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Patterns for Continuous Delivery"
+   :speaker "Pat Kua"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/dda47b2e65c670ae7a133c409300ddc2/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)})
+
+
+(defn talk-6 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Deployment Patterns - Blue/Green, Canary, Phoenix, and their friends"
+   :speaker "Keif Morris"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/6cafe0128b1bc15acf95b0d2c8199b77/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)})
+
 
 (defn talk-list [host]
-  [(talk-3 host "ddd03ec4-d9f9-4d9d-a86e-8b171f774d06") (talk-4 host "63b59404-6c77-481d-8aa3-872996f5019f")])
+  [(talk-5 host "081d4851-5e4a-4e9d-921c-06bddf5a910a") (talk-6 host "2c7872eb-f6e8-4731-aaa0-d4e0999b047a")])
 
 (defn to-entry [item]  [(keyword (item :id)) item])
 

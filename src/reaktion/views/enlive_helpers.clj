@@ -45,9 +45,6 @@
            :main  (_list-of-talks talks)}))
 
 
-
-
-
 (html/defsnippet _reakt-to-a-talk "reaktion/views/reakt_to_a_talk.html" [:div.talk]
   [{:keys [id speaker speaker-img self title]}]
   [:div.speaker :> :img] (html/set-attr :alt speaker)
