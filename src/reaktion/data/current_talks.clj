@@ -45,7 +45,7 @@
    :self (format "http://%s/talks/%s" host uuid)
    :title "Patterns for Continuous Delivery"
    :speaker "Pat Kua"
-   :speaker-img "https://trello.com/card/patterns-for-continuous-delivery-for-jan/502a409bedff44bc7819cfcc/33#"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/dda47b2e65c670ae7a133c409300ddc2/50.png"
    :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
 
