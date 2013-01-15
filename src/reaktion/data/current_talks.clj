@@ -54,7 +54,7 @@
    :id uuid
    :self (format "http://%s/talks/%s" host uuid)
    :title "Deployment Patterns - Blue/Green, Canary, Phoenix, and their friends"
-   :speaker "Keif Morris"
+   :speaker "Kief Morris"
    :speaker-img "https://trello-avatars.s3.amazonaws.com/6cafe0128b1bc15acf95b0d2c8199b77/original.png"
    :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
