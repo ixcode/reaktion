@@ -2,9 +2,11 @@ pom.xml
 *jar
 /lib/
 /classes/
-.lein-deps-sum
 .cake
 *.iws
 target
 .DS_Store
-.lein-failures
+.lein-*
+*.swp
+*.swo
+*.swn
