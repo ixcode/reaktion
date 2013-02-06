@@ -1,8 +1,8 @@
 (ns reaktion.views.common
-  (:use [noir.core :only [defpartial]]
+  (:use [hiccup.def :only [defhtml]]
         [hiccup.page :only [include-css html5]]))
 
-(defpartial layout [params & content]
+(defhtml layout [params & content]
             (html5
               [:head
                [:title (:title params)]

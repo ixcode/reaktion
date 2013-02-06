@@ -1,5 +1,6 @@
 (ns reaktion.views.components 
-  (:use noir.core
+  (:use compojure.core
+        hiccup.def
         hiccup.element))
 
 (defn label-from-id [id]

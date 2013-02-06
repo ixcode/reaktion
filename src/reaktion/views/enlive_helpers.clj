@@ -16,7 +16,7 @@
 (defmacro meta-tag [name content]
     [(and (html/has [:meta]) (html/attr-has :name name))] (html/set-attr :content content))
 
-(html/deftemplate layout "reaktion/views/layout.html"
+(html/deftemplate layout2 "reaktion/views/layout.html"
   [{:keys [title body-class main]}]
   [:title]  (maybe-content title)
   ;;(meta-tag "description" title) Need help!
@@ -40,7 +40,7 @@
   [:ul.talks] (html/content (map _talk_item talks)))
 
 (defn talks [talks]
-  (layout {:title "Talks"
+  (layout2 {:title "Talks"
            :body-class "list-view"
            :main  (_list-of-talks talks)}))
 
@@ -57,7 +57,7 @@
 
 
 (defn talk-reaktion [talk]
-  (layout {:title "Reakt!"
+  (layout2 {:title "Reakt!"
            :body-class "talk-view"
            :main (_reakt-to-a-talk talk)}))
 
@@ -65,6 +65,6 @@
   [])
 
 (defn feedback-accepted []
-  (layout {:title "Feedback accepted"
+  (layout2 {:title "Feedback accepted"
            :body-class "thanks-view"
            :main (_thanks)}))
