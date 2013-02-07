@@ -77,7 +77,7 @@
    :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
 (defn talk-list [host]
-  [(talk-7 host "081d4851-5e4a-4e9d-921c-06bddf5a910a") (talk-8 host "2c7872eb-f6e8-4731-aaa0-d4e0999b047a")])
+  [(talk-7 host "23303525-58af-4615-9a7c-038f637cc72c") (talk-8 host "f531f20d-d302-4a84-834a-0bbc57bb04fe")])
 
 (defn to-entry [item]  [(keyword (item :id)) item])
 
