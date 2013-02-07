@@ -58,9 +58,26 @@
    :speaker-img "https://trello-avatars.s3.amazonaws.com/6cafe0128b1bc15acf95b0d2c8199b77/original.png"
    :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
+(defn talk-7 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Sourcecode in Slides - a little tool to make life easier"
+   :speaker "Johannes Thönes"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/2aa2d4764b7c513f51d9ceb3aa842744/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)})
+
+(defn talk-8 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Lightning talks - the rematch"
+   :speaker "session led by Jennifer Smith"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/2146f9034db00f562da532cd9721c2aa/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
 (defn talk-list [host]
-  [(talk-5 host "081d4851-5e4a-4e9d-921c-06bddf5a910a") (talk-6 host "2c7872eb-f6e8-4731-aaa0-d4e0999b047a")])
+  [(talk-7 host "081d4851-5e4a-4e9d-921c-06bddf5a910a") (talk-8 host "2c7872eb-f6e8-4731-aaa0-d4e0999b047a")])
 
 (defn to-entry [item]  [(keyword (item :id)) item])
 
