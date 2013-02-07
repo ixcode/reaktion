@@ -9,5 +9,6 @@
                            [hiccup "1.0.2"]
                            [enlive "1.0.1"]
                          ]
+            :min-lein-version "2.0.0"
             :main reaktion.server)
 
