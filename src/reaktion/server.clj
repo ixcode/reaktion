@@ -29,7 +29,7 @@
     (println (format "PORT: %s" port))
     (println (format "MONGOHQ_URL: %s" (System/getenv "MONGOHQ_URL")))
     (mongo/connect-mongo!)
-   (run-jetty (handler/site app) {:port 8080})
+   (run-jetty (handler/site app) {:port port})
     )
 )
 
