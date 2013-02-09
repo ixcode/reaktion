@@ -1,7 +1,5 @@
 (ns reaktion.views.components 
-  (:use compojure.core
-        hiccup.def
-        hiccup.element))
+  (:use compojure.core))
 
 (defn label-from-id [id]
   (-> 
