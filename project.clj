@@ -3,7 +3,6 @@
             :dependencies [
                            [org.clojure/clojure "1.4.0"]
                            [com.novemberain/monger "1.3.4"]
-                           [congomongo "0.3.3"] ;needed by heroku
                            [ring/ring-jetty-adapter "1.1.7"]
                            [compojure "1.1.5"]
                            [lib-noir "0.3.5"]
