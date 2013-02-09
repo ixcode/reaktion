@@ -24,8 +24,8 @@
 
 (defn -main [& m]
   (let [mode (keyword (or (first m) :dev ))
-        port (Integer. (get (System/getenv) "PORT" "8080"))]
-    (println "Hello!")
+        port (Integer. (get (System/getenv) "PORT" "8084"))]
+    (println (System/getProperty "sun.java.command"))
     (println (format "PORT: %s" port))
     (println (format "MONGOHQ_URL: %s" (System/getenv "MONGOHQ_URL")))
     (mongo/connect-mongo!)

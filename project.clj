@@ -9,5 +9,8 @@
                            [enlive "1.0.1"]
                          ]
             :min-lein-version "2.0.0"
-            :main reaktion.server)
+            :main reaktion.server
+;;            :jvm-opts ["-javaagent:/Users/jmdb/Code/github/ixcode/reaktion/ops/newrelic/newrelic.jar"]
+)
 
+;;(str "-javaagent:" (if (System/getenv "ROOT_DIR") (System/getenv "ROOT_DIR") (System/getProperty "user.dir")) "/ops/newrelic/newrelic.jar")
