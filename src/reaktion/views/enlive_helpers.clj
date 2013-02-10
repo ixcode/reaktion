@@ -44,6 +44,17 @@
            :body-class "list-view"
            :main  (_list-of-talks talks)}))
 
+(html/defsnippet _door-prize "reaktion/views/door_prize.html" [:div.door-prize]
+  [hostname]
+  )
+
+
+(defn door-prize [hostname]
+  (layout2 {:title "Pick the door prize winner"
+           :body-class "list-view"
+           :main  (_door-prize hostname)}))
+
+
 
 (html/defsnippet _reakt-to-a-talk "reaktion/views/reakt_to_a_talk.html" [:div.talk]
   [{:keys [id speaker speaker-img self title]}]
