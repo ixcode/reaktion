@@ -58,6 +58,10 @@ https://travis-ci.org/ixcode/reaktion
 - Add complete API - Searching, events
 - Add "events" i.e. dates for the event - link to the talks - can have feeds for current, past and future events
 - Add an Ical integration to be able to add the calendar to google calendar
+- Change README to ORG file
+- Rename "index.clj" to views
+- Restructure files to be more sensible
+- Replace CSS with LESS?
 
 ## License
 

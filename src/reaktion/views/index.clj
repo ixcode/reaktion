@@ -18,7 +18,7 @@
   (enlive/render (enlive/door-prize (hostname server port))))
 
 (defn choose_winner [params]
-  (enlive/render (enlive/door-prize-winner "foo")))
+  (enlive/render (enlive/door-prize-winner (storage/choose-winner (:date_of_event params)))))
 
 (defn talks [server port]
   (json (data/talk-list (hostname server port))))
