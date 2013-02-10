@@ -49,7 +49,8 @@
   )
 
 (html/defsnippet _door-prize-winner "reaktion/views/door_prize_winner.html" [:div.door-prize-winner]
-  [winner-email]
+  [date-of-event winner-email]
+  [:span#event-date] (maybe-content date-of-event)
   [:p#winner-email] (maybe-content winner-email))
 
 
@@ -58,10 +59,10 @@
            :body-class "list-view"
            :main  (_door-prize hostname)}))
 
-(defn door-prize-winner [winner]
+(defn door-prize-winner [date-of-event winner]
   (layout2 {:title "And the winner is"
             :body-class "list-view"
-            :main (_door-prize-winner winner)}))
+            :main (_door-prize-winner date-of-event winner)}))
 
 (html/defsnippet _reakt-to-a-talk "reaktion/views/reakt_to_a_talk.html" [:div.talk]
   [{:keys [id speaker speaker-img self title]}]
