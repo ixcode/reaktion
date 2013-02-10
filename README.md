@@ -53,10 +53,10 @@ https://travis-ci.org/ixcode/reaktion
 ## TODO
 
 - Convert to using Ring
-- Use Laser instead of enlive
+- Use Laser instead of enlive?
 - Get newrelic working on heroku (need to be able to parameterise the project.clj to set jvm-opts)
 - Add complete API - Searching, events
-- Add "events" i.e. dates for the event - link to the talks - can have feeds for current, past and future events
+- Add "events" i.e. dates for the event - link to the talks - can have feeds for current, past and future events. This is specially important as now I have made it so that it puts the date in automatically, if people want to vote after the talk this wouldnt work.
 - Add an Ical integration to be able to add the calendar to google calendar
 - Change README to ORG file
 - Rename "index.clj" to views
