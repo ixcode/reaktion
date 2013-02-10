@@ -6,6 +6,8 @@
             )
   (:use compojure.core
         [noir.response :only [json redirect]]
+        [clj-time.core :only [now]]
+        [clj-time.format :only [formatter unparse]]
         reaktion.views.components))
 
 (defn hostname [server port]
@@ -36,9 +38,13 @@
 (defn feedback_accepted []
   (enlive/render (enlive/feedback-accepted)))
 
+(def reaktion-time-format (formatter "dd-MM-yyyy"))
+(defn current-date []
+  (unparse reaktion-time-format (now)))
+
 (defn save_feedback [params]
   (storage/save-feedback (dissoc params :id))
-  (storage/register-reviewer (:reviewer_email params) "07-02-2013")
+  (storage/register-reviewer (:reviewer_email params) (current-date))
   (redirect "/feedback-accepted")
  )
 

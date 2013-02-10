@@ -22,4 +22,7 @@
 
 (defn choose-winner [date-of-event]
   (println "Picking a winner for the event date of " date-of-event)
-  (pick-email-at-random-from (mongo/retrieve-collection "reviewers" {:date date-of-event})))
+  (let [reviewers (mongo/retrieve-collection "reviewers" {:date date-of-event})]
+    (if (empty? reviewers)
+      (format "You chose a date (%s) on which there were no reviewers." date-of-event)
+      (pick-email-at-random-from reviewers))))

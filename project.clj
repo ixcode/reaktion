@@ -2,6 +2,7 @@
             :description "FIXME: write this!"
             :dependencies [
                            [org.clojure/clojure "1.4.0"]
+                           [clj-time "0.4.4"]
                            [com.novemberain/monger "1.3.4"]
                            [ring/ring-jetty-adapter "1.1.7"]
                            [compojure "1.1.5"]
