@@ -14,9 +14,11 @@
 (defn index [server port]
   (enlive/render (enlive/talks (data/talk-list (hostname server port)))))
 
-(defn door-prize [server port]
+(defn door_prize [server port]
   (enlive/render (enlive/door-prize (hostname server port))))
 
+(defn choose_winner [params]
+  (enlive/render (enlive/door-prize-winner "foo")))
 
 (defn talks [server port]
   (json (data/talk-list (hostname server port))))

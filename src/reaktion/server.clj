@@ -12,7 +12,8 @@
 
 (defroutes app
   (GET "/" [:as {server :server-name port :server-port}] (views/index server port))
-  (GET "/door-prize" [:as {server :server-name port :server-port}] (views/door-prize server port))
+  (GET "/door-prize" [:as {server :server-name port :server-port}] (views/door_prize server port))
+  (POST "/door-prize" [:as {params :params}] (views/choose_winner params))
   (GET "/talks" [:as {server :server-name port :server-port}] (views/talks server port))
   (GET "/talks/:id/feedback" [id :as {server :server-name port :server-port}] (views/talk_feedback id server port))
   (GET "/talks/:id" [id :as {server :server-name port :server-port}] (views/talk_feedback_form id server port))

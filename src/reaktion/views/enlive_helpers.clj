@@ -48,13 +48,20 @@
   [hostname]
   )
 
+(html/defsnippet _door-prize-winner "reaktion/views/door_prize_winner.html" [:div.door-prize-winner]
+  [winner-email]
+  [:p#winner-email] (maybe-content winner-email))
+
 
 (defn door-prize [hostname]
   (layout2 {:title "Pick the door prize winner"
            :body-class "list-view"
            :main  (_door-prize hostname)}))
 
-
+(defn door-prize-winner [winner]
+  (layout2 {:title "And the winner is"
+            :body-class "list-view"
+            :main (_door-prize-winner winner)}))
 
 (html/defsnippet _reakt-to-a-talk "reaktion/views/reakt_to_a_talk.html" [:div.talk]
   [{:keys [id speaker speaker-img self title]}]
