@@ -76,8 +76,29 @@
    :speaker-img "https://trello-avatars.s3.amazonaws.com/2146f9034db00f562da532cd9721c2aa/original.png"
    :feedback (format "http://%s/talks/%s/feedback" host uuid)})
 
+(defn talk-9 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Building a Hackintosh"
+   :speaker "Erik Doernenburg"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/dcbecc7f0daf6d55a1e6e7b59da88360/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)
+   })
+
+(defn talk-10 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "How we test our heavy UI bits over at ChessCasting"
+   :speaker "Christoph Burgmer"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/e9af4da95560a09b7a484c0d8c34694d/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)
+   })
+
 (defn talk-list [host]
-  [(talk-7 host "23303525-58af-4615-9a7c-038f637cc72c") (talk-8 host "f531f20d-d302-4a84-834a-0bbc57bb04fe")])
+  [(talk-9 host "05fb9628-6077-4268-b54b-6f1724b0139d")
+   (talk-10 host "ccf986c0-9634-40a0-994b-30ca4d8e5adb")])
 
 (defn to-entry [item]  [(keyword (item :id)) item])
 
@@ -85,7 +106,3 @@
   (into {} (map to-entry (talk-list host))))
 
 ;; or - (apply hash-map (flatten (map to-entry (talk-list host))))
-
-
-
-
