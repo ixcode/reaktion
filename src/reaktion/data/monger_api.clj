@@ -1,13 +1,11 @@
 (ns reaktion.data.monger_api
   (:require [monger.collection :as mc])
-  (:use [monger.core :only [connect! connect set-db! connect-via-uri! get-db]])
+  (:use [monger.core :only [connect! connect set-db! connect-via-uri! get-db
+  *mongodb-connection*]])
   (:import [org.bson.types ObjectId]
            [com.mongodb DB WriteConcern]))
 
 
-;; (defn maybe-connect-mongo! []
-;;   (when (not (connection? *mongo-config*))
-;;     (connect-mongo!)))
 
 (defn connect-mongo! []
   (println "!!!!!!" (System/getenv "MONGOHQ_URL"))
@@ -15,7 +13,14 @@
     (if (nil? mongohq_url)
       (do (connect!)
           (set-db! (get-db "reaktion")))
-      (connect-via-uri! mongohq_url))))
+      (connect-via-uri! mongohq_url)
+      )))
+
+(defn maybe-connect-mongo! []
+  (when (not (instance? com.mongodb.Mongo *mongodb-connection*))
+   (println "connecting")
+    (connect-mongo!)
+    ))
 
 (defn store-document [collection-name document]
   (let [oid (ObjectId.)]

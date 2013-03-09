@@ -30,8 +30,8 @@
     (println (System/getProperty "sun.java.command"))
     (println (format "PORT: %s" port))
     (println (format "MONGOHQ_URL: %s" (System/getenv "MONGOHQ_URL")))
-    (mongo/connect-mongo!)
-   (run-jetty (handler/site app) {:port port})
+    (mongo/maybe-connect-mongo!)
+    (run-jetty (handler/site app) {:port port})
     )
 )
 
