@@ -6,7 +6,6 @@
                            [com.novemberain/monger "1.3.4"]
                            [ring/ring-jetty-adapter "1.1.7"]
                            [compojure "1.1.5"]
-                           [me.raynes/laser "0.1.22"]
                            [lib-noir "0.3.5"]
                            [enlive "1.0.1"]
                          ]
