@@ -102,7 +102,7 @@
    :self (format "http://%s/talks/%s" host uuid)
    :title "flatMap for fun and profit"
    :speaker "Aleksander Sumowski"
-   :speaker-img "https://trello-avatars.s3.amazonaws.com/dcbecc7f0daf6d55a1e6e7b59da88360/original.png"
+   :speaker-img "https://en.gravatar.com/userimage/2643580/33ee26d4a41d9d4b4dee14b7a5bdd874.jpg?size=200"
    :feedback (format "http://%s/talks/%s/feedback" host uuid)
    })
 
