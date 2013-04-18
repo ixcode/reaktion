@@ -96,9 +96,29 @@
    :feedback (format "http://%s/talks/%s/feedback" host uuid)
    })
 
+(defn talk-11 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "flatMap for fun and profit"
+   :speaker "Aleksander Sumowski"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/dcbecc7f0daf6d55a1e6e7b59da88360/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)
+   })
+
+(defn talk-12 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Building cross-platform mobile apps with Calatrava"
+   :speaker "Giles Alexander"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/99b1488f5b731ffb6bb2323eff5de959/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)
+   })
+
 (defn talk-list [host]
-  [(talk-9 host "05fb9628-6077-4268-b54b-6f1724b0139d")
-   (talk-10 host "ccf986c0-9634-40a0-994b-30ca4d8e5adb")])
+  [(talk-11 host "cb225ebe-4c18-4828-aec2-486467ab3652")
+   (talk-12 host "8a56e8cb-cb7b-4bd1-b887-35631942cef5")])
 
 (defn to-entry [item]  [(keyword (item :id)) item])
 
