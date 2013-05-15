@@ -116,13 +116,38 @@
    :feedback (format "http://%s/talks/%s/feedback" host uuid)
    })
 
+(defn talk-13 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Making pictures with code that you'd almost consider hanging on your wall."
+   :speaker "John Cowie"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/6936e621b6067b42db6735f7eaa54869/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)
+   })
+
+(defn talk-14 [host uuid]
+  {:is :talk
+   :id uuid
+   :self (format "http://%s/talks/%s" host uuid)
+   :title "Fun with graphs"
+   :speaker "Jen Smith"
+   :speaker-img "https://trello-avatars.s3.amazonaws.com/2146f9034db00f562da532cd9721c2aa/original.png"
+   :feedback (format "http://%s/talks/%s/feedback" host uuid)
+   })
+
+
+(println (java.util.UUID/randomUUID))
+
 (defn talk-list [host]
-  [(talk-11 host "cb225ebe-4c18-4828-aec2-486467ab3652")
-   (talk-12 host "8a56e8cb-cb7b-4bd1-b887-35631942cef5")])
+  [(talk-13 host "4610aabd-a615-4a85-bbc8-10293d9e0adb")
+   (talk-14 host "366f6a9b-7311-4a21-9aae-5ff55c6e0bb7")])
 
 (defn to-entry [item]  [(keyword (item :id)) item])
 
 (defn talk-index [host]
   (into {} (map to-entry (talk-list host))))
+
+
 
 ;; or - (apply hash-map (flatten (map to-entry (talk-list host))))
