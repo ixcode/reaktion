@@ -4,10 +4,7 @@
     [compojure.handler :as handler]
     [compojure.route :as route]
     [reaktion.data.monger_api :as mongo]
-    [reaktion.views.index :as views]
-    )
-  )
-
+    [reaktion.views.index :as views]))
 
 
 (defroutes app
@@ -21,8 +18,7 @@
   (GET "/ping" [:as request] (views/ping request))
   (POST "/talks/:id" [id :as {params :params}] (views/save_feedback params))
   (route/resources "/")
-  (route/not-found "Not Found")
-  )
+  (route/not-found "Not Found"))
 
 (defn -main [& m]
   (let [mode (keyword (or (first m) :dev ))
